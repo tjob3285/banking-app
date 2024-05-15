@@ -11,6 +11,7 @@ import { authFormSchema } from '@/lib/utils'
 import FormInput from './FormInput'
 import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import { signUp, signIn, getLoggedInUser } from '@/lib/actions/user.actions'
 
 const AuthForm = ({ type }: { type: string }) => {
   const router = useRouter()
@@ -34,16 +35,16 @@ const AuthForm = ({ type }: { type: string }) => {
         try {
             // sing up with appwrite & create plain token
             if(type === 'sign-up') {
-                //const newUser = await signUp(data);
-
-                //setUser(newuser);
+                const newUser = await signUp(values);
+                
+                setUser(newUser);
             } else if(type === 'sign-in') {
-                /*const response = await signIn({
+                const response = await signIn({
                     email: values.email,
                     password: values.password
                 })
-
-                if(response) router.push('/')*/
+                console.log(response)
+                if(response) router.push('/')
             }
         } catch (error) {
             console.log(error)
@@ -132,7 +133,7 @@ const AuthForm = ({ type }: { type: string }) => {
 
                 <footer className='flex justify-center gap-1'>
                     <p className='text-14 font-normal text-gray-600'>{type === 'sign-in'
-                        ? "Don't have and account?"
+                        ? "Don't have an account?"
                         : "Already have an account?"}
                     </p>
                     <Link className='form-link' href={type === 'sign-in' ? '/sign-up'
