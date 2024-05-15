@@ -43,7 +43,7 @@ const AuthForm = ({ type }: { type: string }) => {
                     email: values.email,
                     password: values.password
                 })
-                console.log(response)
+
                 if(response) router.push('/')
             }
         } catch (error) {
