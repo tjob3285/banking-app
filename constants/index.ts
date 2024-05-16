@@ -130,14 +130,14 @@ export const sidebarLinks = [
     },
     Travel: {
       borderColor: "border-[#0047AB]",
-      backgroundColor: "bg-blue-500",
-      textColor: "text-blue-700",
+      backgroundColor: "bg-purple-500",
+      textColor: "text-purple-700",
       chipBackgroundColor: "bg-[#ECFDF3]",
     },
     default: {
       borderColor: "",
-      backgroundColor: "bg-blue-500",
-      textColor: "text-blue-700",
+      backgroundColor: "bg-purple-500",
+      textColor: "text-purple-700",
       chipBackgroundColor: "bg-inherit",
     },
   };
